@@ -12,20 +12,23 @@ main {
 }
 
 .slider {
-    height: 70%;
+    height: 70vh;
     width: 70%;
     display: flex;  
 }
 
 .container-items {
     width: 80%;
+    height: 100%;
 }
 
 .container-thumbnails {
     width: 20%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: auto;
 }
 
 .btn_up, .btn_down {
@@ -38,6 +41,7 @@ main {
     transform: translateX(-50%);
     text-align: center;
     line-height: 30px;
+    z-index: 99;
 }
 
 .btn_up {
@@ -48,16 +52,61 @@ main {
     bottom: 10px;
 }
 
+.item {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.item.active {
+    display: block;
+}
+
+.item img {
+    height: 100%;
+}
+
 img {
     width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.thumbnail {
+    width: 100%;
+    position: relative;
+}
+
+.thumbnail img {
+    height: calc(70vh / 5);
+}
+
+.layover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.layover.active {
+    background-color: transparent;
+    border: 2px solid white;
 }
 
 
+
+
+
+
+
 /* ***** debug ***** */
-.debug .container-items {
+/* .debug .container-items {
     background-color: green;
 }
 
 .debug .container-thumbnails {
     background-color: aqua;
-}
+} */

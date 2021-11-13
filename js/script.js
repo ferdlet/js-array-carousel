@@ -22,3 +22,58 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
+let images = '';
+
+for (let i = 0; i < items.length; i++) {
+    images += `
+        <div class="item">
+            <img src="${items[i]}" alt="${items[i]}">
+        </div>
+    `;
+}
+
+const containerItems = document.querySelector('.container-items');
+containerItems.innerHTML = images;
+
+const image = document.getElementsByClassName('item');
+let activeImage = 0;
+image[activeImage].classList.add('active');
+
+const layoverThumbnails = document.getElementsByClassName('layover');
+console.log(layoverThumbnails);
+
+const btnUp = document.querySelector('.btn_up');
+const btnDown = document.querySelector('.btn_down');
+
+btnDown.addEventListener("click", function(){
+    if (activeImage < items.length - 1) {
+        image[activeImage].classList.remove('active');
+        layoverThumbnails[activeImage].classList.remove('active');
+        activeImage++;
+        image[activeImage].classList.add('active');
+        layoverThumbnails[activeImage].classList.add('active');
+    } else if (activeImage >= items.length - 1) {
+        image[activeImage].classList.remove('active');
+        layoverThumbnails[activeImage].classList.remove('active');
+        activeImage = 0;
+        image[activeImage].classList.add('active');
+        layoverThumbnails[activeImage].classList.add('active');
+    }
+});
+
+btnUp.addEventListener("click", function () {
+    if (activeImage <= 0) {
+        image[activeImage].classList.remove('active');
+        layoverThumbnails[activeImage].classList.remove('active');
+        activeImage = items.length -1;
+        image[activeImage].classList.add('active');
+        layoverThumbnails[activeImage].classList.add('active');
+    } else if (activeImage > 0) {
+        image[activeImage].classList.remove('active');
+        layoverThumbnails[activeImage].classList.remove('active');
+        activeImage--;
+        image[activeImage].classList.add('active');
+        layoverThumbnails[activeImage].classList.add('active');
+    }
+});
+
