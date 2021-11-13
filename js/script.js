@@ -27,6 +27,10 @@ let images = '';
 for (let i = 0; i < items.length; i++) {
     images += `
         <div class="item">
+            <div class="container_title">
+                <h1>${title[i]}</h1>
+                <p>${text[i]}</p>
+            </div>
             <img src="${items[i]}" alt="${items[i]}">
         </div>
     `;

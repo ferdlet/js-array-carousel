@@ -56,6 +56,7 @@ main {
     width: 100%;
     height: 100%;
     display: none;
+    position: relative;
 }
 
 .item.active {
@@ -72,6 +73,33 @@ img {
     object-fit: cover;
 }
 
+.item .container_title {
+    text-align: end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    color: white;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.item .container_title h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.item .container_title p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .thumbnail {
     width: 100%;
     position: relative;
@@ -81,7 +109,7 @@ img {
     height: calc(70vh / 5);
 }
 
-.layover {
+.thumbnail .layover {
     position: absolute;
     top: 0;
     left: 0;
