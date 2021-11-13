@@ -36,6 +36,21 @@ for (let i = 0; i < items.length; i++) {
     `;
 }
 
+let thumbnail = '';
+
+for (let i = 0; i < items.length; i++) {
+    thumbnail += `
+        <div class="thumbnail">
+            <div class="layover"></div>
+            <img src="${items[i]}" alt="${items[i]}">
+        </div>
+    `;
+}
+
+const containerThumbnails = document.querySelector('.container-thumbnails');
+containerThumbnails.innerHTML += thumbnail;
+document.querySelector(".layover").className = "layover active";
+
 const containerItems = document.querySelector('.container-items');
 containerItems.innerHTML = images;
 
