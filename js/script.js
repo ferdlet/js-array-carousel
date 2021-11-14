@@ -97,3 +97,13 @@ btnUp.addEventListener("click", function () {
 });
 
 
+
+for (let i = 0; i < items.length; i++) {
+    layoverThumbnails[i].addEventListener("click", function () {
+        layoverThumbnails[activeImage].classList.remove('active');
+        image[activeImage].classList.remove('active');
+        activeImage = i;
+        layoverThumbnails[activeImage].classList.add('active');
+        image[activeImage].classList.add('active');
+    });
+}
